@@ -364,16 +364,40 @@
             </div>
         </div>
 
-        <div id="biblioteka-norm" class="module hidden">
-            <div class="card">
-                <h3>Normy</h3>
-                <ul id="norm-list">
-                    <li>Norma 1</li>
-                    <li>Norma 2</li>
-                    <li>Norma 3</li>
-                </ul>
-            </div>
+       <div class="module" id="bibliotekaNorm">
+    <h2>Biblioteka Norm</h2>
+    <form id="addNormForm">
+        <label for="normName">Nazwa Normy:</label>
+        <input type="text" id="normName" name="normName" required>
+        
+        <label for="normFile">Plik PDF z Normą:</label>
+        <input type="file" id="normFile" name="normFile" accept="application/pdf" required>
+        
+        <label for="expiryDate">Data Wygaśnięcia Linku:</label>
+        <input type="date" id="expiryDate" name="expiryDate" required>
+        
+        <button type="submit" class="btn">Dodaj Normę</button>
+    </form>
+
+    <div id="normList">
+        <h3>Lista Norm</h3>
+        <!-- Dynamicznie generowana lista norm -->
+    </div>
+</div>
+
+<!-- Modal for displaying the PDF -->
+<div id="pdfModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Podgląd Normy</h2>
+            <span class="modal-close">&times;</span>
         </div>
+        <div class="modal-body">
+            <iframe id="pdfViewer" src="" frameborder="0"></iframe>
+        </div>
+    </div>
+</div>
+
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
