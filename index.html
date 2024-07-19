@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>System Zarządzania</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="sidebar">
@@ -28,19 +29,19 @@
         </div>
 
         <div id="dashboard" class="module">
-            <div class="table-container">
+            <div class="card">
                 <h3>Kalendarz</h3>
                 <p>Kalendarz szkoleń (Dzień/Tydzień/Miesiąc).</p>
             </div>
-            <div class="table-container">
+            <div class="card">
                 <h3>Powiadomienia</h3>
                 <p>Przypomnienia o nadchodzących szkoleniach, zadaniach.</p>
             </div>
-            <div class="table-container">
+            <div class="card">
                 <h3>Statystyki</h3>
                 <canvas id="dashboardChart"></canvas>
             </div>
-            <div class="table-container">
+            <div class="card">
                 <h3>Szybki dostęp</h3>
                 <button class="btn">Rejestracja uczestników</button>
                 <button class="btn">Generowanie dokumentów</button>
@@ -48,7 +49,7 @@
         </div>
 
         <div id="szkolenia-otwarte" class="module hidden">
-            <div class="table-container">
+            <div class="card">
                 <h3>Lista Szkolenia Otwarte</h3>
                 <table>
                     <thead>
@@ -65,7 +66,7 @@
                 </table>
             </div>
             
-            <div class="form-container">
+            <div class="card">
                 <h3>Dodaj/Edytuj Szkolenie</h3>
                 <div class="form-group">
                     <label for="open-category">Kategoria</label>
@@ -91,7 +92,7 @@
         </div>
 
         <div id="crm" class="module hidden">
-            <div class="table-container">
+            <div class="card">
                 <h3>Baza Klientów</h3>
                 <table>
                     <thead>
@@ -108,7 +109,7 @@
                 </table>
             </div>
             
-            <div class="form-container">
+            <div class="card">
                 <h3>Dodaj Klienta</h3>
                 <div class="form-group">
                     <label for="client-name">Nazwa</label>
@@ -127,7 +128,7 @@
         </div>
 
         <div id="szkolenia-zamkniete" class="module hidden">
-            <div class="table-container">
+            <div class="card">
                 <h3>Lista Szkolenia Zamknięte</h3>
                 <table>
                     <thead>
@@ -144,7 +145,7 @@
                 </table>
             </div>
             
-            <div class="form-container">
+            <div class="card">
                 <h3>Dodaj/Edytuj Szkolenie</h3>
                 <div class="form-group">
                     <label for="closed-client">Klient</label>
@@ -173,6 +174,7 @@
 
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
