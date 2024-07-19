@@ -227,3 +227,54 @@ form button {
         padding: 10px;
     }
 }
+
+/* Additional CSS for Biblioteka Norm */
+#addNormForm {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+#normList {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+#pdfModal iframe {
+    width: 100%;
+    height: 80vh;
+}
+
+/* Prevent printing and downloading */
+#pdfViewer {
+    pointer-events: none;
+}
+
+body {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Black screen on screenshot attempt */
+@media print {
+    body {
+        visibility: hidden;
+    }
+    
+    #pdfModal {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: #000;
+    }
+}
+
