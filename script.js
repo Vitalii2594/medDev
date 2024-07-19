@@ -1,5 +1,3 @@
-// JavaScript file: script.js
-
 function showModule(moduleId) {
     const modules = document.querySelectorAll('.module');
     modules.forEach(module => module.classList.add('hidden'));
@@ -87,8 +85,8 @@ document.addEventListener('DOMContentLoaded', function() {
             datasets: [{
                 label: 'Szkolenia',
                 data: [12, 19, 3, 5, 2, 3, 7, 10, 15, 20, 25, 30],
-                backgroundColor: 'rgba(44, 62, 80, 0.2)',
-                borderColor: 'rgba(44, 62, 80, 1)',
+                backgroundColor: 'rgba(41, 128, 185, 0.2)',
+                borderColor: 'rgba(41, 128, 185, 1)',
                 borderWidth: 1
             }]
         },
