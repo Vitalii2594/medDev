@@ -253,3 +253,84 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeCharts();
     initializeCalendar();
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    const addNormForm = document.getElementById('addNormForm');
+    const normList = document.getElementById('normList');
+    const pdfModal = document.getElementById('pdfModal');
+    const pdfViewer = document.getElementById('pdfViewer');
+    const modalClose = document.querySelector('.modal-close');
+
+    const norms = [];
+
+    addNormForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        
+        const normName = document.getElementById('normName').value;
+        const normFile = document.getElementById('normFile').files[0];
+        const expiryDate = document.getElementById('expiryDate').value;
+        
+        const reader = new FileReader();
+        
+        reader.onload = function (e) {
+            const normData = {
+                name: normName,
+                file: e.target.result,
+                expiry: new Date(expiryDate),
+                id: Date.now()
+            };
+            
+            norms.push(normData);
+            renderNorms();
+        };
+        
+        reader.readAsDataURL(normFile);
+        
+        addNormForm.reset();
+    });
+
+    function renderNorms() {
+        normList.innerHTML = '<h3>Lista Norm</h3>';
+        
+        norms.forEach(norm => {
+            const normElement = document.createElement('div');
+            normElement.classList.add('norm');
+            normElement.innerHTML = `
+                <p>Nazwa: ${norm.name}</p>
+                <p>Data wygaśnięcia: ${norm.expiry.toDateString()}</p>
+                <button class="btn btn-secondary" data-id="${norm.id}">Podgląd</button>
+            `;
+            
+            normElement.querySelector('button').addEventListener('click', function () {
+                openPdfViewer(norm);
+            });
+            
+            normList.appendChild(normElement);
+        });
+    }
+
+    function openPdfViewer(norm) {
+        const currentDate = new Date();
+        
+        if (currentDate > norm.expiry) {
+            alert('Link do normy wygasł');
+            return;
+        }
+        
+        pdfViewer.src = norm.file;
+        pdfModal.style.display = 'block';
+    }
+
+    modalClose.addEventListener('click', function () {
+        pdfModal.style.display = 'none';
+        pdfViewer.src = '';
+    });
+
+    window.addEventListener('click', function (event) {
+        if (event.target === pdfModal) {
+            pdfModal.style.display = 'none';
+            pdfViewer.src = '';
+        }
+    });
+});
+
