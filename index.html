@@ -4,106 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>System Zarządzania</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f6f9;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
-        .sidebar {
-            width: 250px;
-            background-color: #2c3e50;
-            color: #ecf0f1;
-            position: fixed;
-            height: 100%;
-            padding-top: 20px;
-        }
-        .sidebar h2 {
-            text-align: center;
-            font-weight: 300;
-        }
-        .sidebar ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        .sidebar ul li {
-            padding: 15px 20px;
-            cursor: pointer;
-        }
-        .sidebar ul li:hover {
-            background-color: #34495e;
-        }
-        .content {
-            margin-left: 250px;
-            padding: 20px;
-        }
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            background-color: #ecf0f1;
-            padding: 10px 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .navbar h1 {
-            margin: 0;
-            font-weight: 300;
-        }
-        .hidden {
-            display: none;
-        }
-        .table-container, .form-container {
-            background-color: #ffffff;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
-        table th, table td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-        table th {
-            background-color: #2c3e50;
-            color: white;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        .form-group input, .form-group select, .form-group textarea {
-            width: 100%;
-            padding: 8px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .btn {
-            background-color: #2c3e50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .btn:hover {
-            background-color: #34495e;
-        }
-        .chart-container {
-            margin: 20px 0;
-        }
-    </style>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="sidebar">
@@ -126,7 +27,6 @@
             <h1 id="module-title">Strona Główna</h1>
         </div>
 
-        <!-- Dashboard -->
         <div id="dashboard" class="module">
             <div class="table-container">
                 <h3>Kalendarz</h3>
@@ -147,7 +47,6 @@
             </div>
         </div>
 
-        <!-- Szkolenia Otwarte -->
         <div id="szkolenia-otwarte" class="module hidden">
             <div class="table-container">
                 <h3>Lista Szkolenia Otwarte</h3>
@@ -160,19 +59,8 @@
                             <th>Status</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>Kategoria 1</td>
-                            <td>2024-07-01</td>
-                            <td>Jan Kowalski</td>
-                            <td>Zaplanowane</td>
-                        </tr>
-                        <tr>
-                            <td>Kategoria 2</td>
-                            <td>2024-07-05</td>
-                            <td>Anna Nowak</td>
-                            <td>Zakończone</td>
-                        </tr>
+                    <tbody id="open-training-list">
+                        <!-- Dynamic content will be added here -->
                     </tbody>
                 </table>
             </div>
@@ -194,15 +82,14 @@
                 <div class="form-group">
                     <label for="open-status">Status</label>
                     <select id="open-status" name="open-status">
-                        <option value="planned">Zaplanowane</option>
-                        <option value="completed">Zakończone</option>
+                        <option value="Zaplanowane">Zaplanowane</option>
+                        <option value="Zakończone">Zakończone</option>
                     </select>
                 </div>
-                <button class="btn">Zapisz</button>
+                <button class="btn" onclick="addOpenTraining()">Zapisz</button>
             </div>
         </div>
 
-        <!-- CRM -->
         <div id="crm" class="module hidden">
             <div class="table-container">
                 <h3>Baza Klientów</h3>
@@ -215,19 +102,8 @@
                             <th>Status</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>Klient 1</td>
-                            <td>Jan Kowalski</td>
-                            <td>ul. Przykładowa 1</td>
-                            <td>Aktywny</td>
-                        </tr>
-                        <tr>
-                            <td>Klient 2</td>
-                            <td>Anna Nowak</td>
-                            <td>ul. Przykładowa 2</td>
-                            <td>Nieaktywny</td>
-                        </tr>
+                    <tbody id="client-list">
+                        <!-- Dynamic content will be added here -->
                     </tbody>
                 </table>
             </div>
@@ -246,11 +122,10 @@
                     <label for="address">Adres</label>
                     <input type="text" id="address" name="address">
                 </div>
-                <button class="btn">Zapisz</button>
+                <button class="btn" onclick="addClient()">Zapisz</button>
             </div>
         </div>
 
-        <!-- Szkolenia Zamknięte -->
         <div id="szkolenia-zamkniete" class="module hidden">
             <div class="table-container">
                 <h3>Lista Szkolenia Zamknięte</h3>
@@ -263,19 +138,8 @@
                             <th>Status</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>Klient 1</td>
-                            <td>2024-07-10</td>
-                            <td>Warszawa</td>
-                            <td>Zaplanowane</td>
-                        </tr>
-                        <tr>
-                            <td>Klient 2</td>
-                            <td>2024-07-12</td>
-                            <td>Kraków</td>
-                            <td>Zakończone</td>
-                        </tr>
+                    <tbody id="closed-training-list">
+                        <!-- Dynamic content will be added here -->
                     </tbody>
                 </table>
             </div>
@@ -297,298 +161,18 @@
                 <div class="form-group">
                     <label for="closed-status">Status</label>
                     <select id="closed-status" name="closed-status">
-                        <option value="planned">Zaplanowane</option>
-                        <option value="completed">Zakończone</option>
+                        <option value="Zaplanowane">Zaplanowane</option>
+                        <option value="Zakończone">Zakończone</option>
                     </select>
                 </div>
-                <button class="btn">Zapisz</button>
+                <button class="btn" onclick="addClosedTraining()">Zapisz</button>
             </div>
         </div>
 
-        <!-- Zarządzanie Trenerami -->
-        <div id="zarzadzanie-trenerami" class="module hidden">
-            <div class="table-container">
-                <h3>Baza Trenerów</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Imię</th>
-                            <th>Nazwisko</th>
-                            <th>Specjalizacja</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Jan</td>
-                            <td>Kowalski</td>
-                            <td>Informatyka</td>
-                            <td>Aktywny</td>
-                        </tr>
-                        <tr>
-                            <td>Anna</td>
-                            <td>Nowak</td>
-                            <td>Marketing</td>
-                            <td>Nieaktywny</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            
-            <div class="form-container">
-                <h3>Dodaj Trenera</h3>
-                <div class="form-group">
-                    <label for="trainer-firstname">Imię</label>
-                    <input type="text" id="trainer-firstname" name="trainer-firstname">
-                </div>
-                <div class="form-group">
-                    <label for="trainer-lastname">Nazwisko</label>
-                    <input type="text" id="trainer-lastname" name="trainer-lastname">
-                </div>
-                <div class="form-group">
-                    <label for="trainer-specialization">Specjalizacja</label>
-                    <input type="text" id="trainer-specialization" name="trainer-specialization">
-                </div>
-                <button class="btn">Zapisz</button>
-            </div>
-        </div>
+        <!-- Additional modules go here -->
 
-        <!-- Workflow -->
-        <div id="workflow" class="module hidden">
-            <div class="table-container">
-                <h3>Lista Zadań</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Zadanie</th>
-                            <th>Termin</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Zadanie 1</td>
-                            <td>2024-06-20</td>
-                            <td>W trakcie</td>
-                        </tr>
-                        <tr>
-                            <td>Zadanie 2</td>
-                            <td>2024-06-25</td>
-                            <td>Zakończone</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            
-            <div class="form-container">
-                <h3>Dodaj/Edytuj Zadanie</h3>
-                <div class="form-group">
-                    <label for="task-name">Zadanie</label>
-                    <input type="text" id="task-name" name="task-name">
-                </div>
-                <div class="form-group">
-                    <label for="task-deadline">Termin</label>
-                    <input type="date" id="task-deadline" name="task-deadline">
-                </div>
-                <div class="form-group">
-                    <label for="task-status">Status</label>
-                    <select id="task-status" name="task-status">
-                        <option value="in-progress">W trakcie</option>
-                        <option value="completed">Zakończone</option>
-                    </select>
-                </div>
-                <button class="btn">Zapisz</button>
-            </div>
-        </div>
-
-        <!-- Dokumentacja -->
-        <div id="dokumentacja" class="module hidden">
-            <div class="table-container">
-                <h3>Lista Szablonów</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Nazwa Szablonu</th>
-                            <th>Opis</th>
-                            <th>Opcje</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Szablon 1</td>
-                            <td>Opis szablonu 1</td>
-                            <td><button class="btn">Pobierz</button></td>
-                        </tr>
-                        <tr>
-                            <td>Szablon 2</td>
-                            <td>Opis szablonu 2</td>
-                            <td><button class="btn">Pobierz</button></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            
-            <div class="form-container">
-                <h3>Dodaj Szablon</h3>
-                <div class="form-group">
-                    <label for="template-name">Nazwa Szablonu</label>
-                    <input type="text" id="template-name" name="template-name">
-                </div>
-                <div class="form-group">
-                    <label for="template-description">Opis</label>
-                    <textarea id="template-description" name="template-description"></textarea>
-                </div>
-                <button class="btn">Zapisz</button>
-            </div>
-        </div>
-
-        <!-- Raporty -->
-        <div id="raporty" class="module hidden">
-            <div class="table-container">
-                <h3>Lista Raportów</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Nazwa Raportu</th>
-                            <th>Data</th>
-                            <th>Opcje</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Raport 1</td>
-                            <td>2024-06-01</td>
-                            <td><button class="btn">Pobierz</button></td>
-                        </tr>
-                        <tr>
-                            <td>Raport 2</td>
-                            <td>2024-05-15</td>
-                            <td><button class="btn">Pobierz</button></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            
-            <div class="form-container">
-                <h3>Generuj Raport</h3>
-                <div class="form-group">
-                    <label for="report-name">Nazwa Raportu</label>
-                    <input type="text" id="report-name" name="report-name">
-                </div>
-                <div class="form-group">
-                    <label for="report-date">Data</label>
-                    <input type="date" id="report-date" name="report-date">
-                </div>
-                <button class="btn">Generuj</button>
-            </div>
-
-            <div class="chart-container">
-                <h3>Wykresy Raportów</h3>
-                <canvas id="reportChart"></canvas>
-            </div>
-        </div>
-
-        <!-- Biblioteka Norm -->
-        <div id="biblioteka-norm" class="module hidden">
-            <div class="table-container">
-                <h3>Lista Norm</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Nazwa Normy</th>
-                            <th>Opis</th>
-                            <th>Opcje</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Norma 1</td>
-                            <td>Opis normy 1</td>
-                            <td><button class="btn">Pobierz</button></td>
-                        </tr>
-                        <tr>
-                            <td>Norma 2</td>
-                            <td>Opis normy 2</td>
-                            <td><button class="btn">Pobierz</button></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            
-            <div class="form-container">
-                <h3>Dodaj Normę</h3>
-                <div class="form-group">
-                    <label for="norm-name">Nazwa Normy</label>
-                    <input type="text" id="norm-name" name="norm-name">
-                </div>
-                <div class="form-group">
-                    <label for="norm-description">Opis</label>
-                    <textarea id="norm-description" name="norm-description"></textarea>
-                </div>
-                <button class="btn">Zapisz</button>
-            </div>
-        </div>
     </div>
 
-    <script>
-        function showModule(moduleId) {
-            document.querySelectorAll('.module').forEach(module => {
-                module.classList.add('hidden');
-            });
-            document.getElementById(moduleId).classList.remove('hidden');
-            document.getElementById('module-title').innerText = document.querySelector(`.sidebar ul li[onclick="showModule('${moduleId}')"]`).innerText;
-        }
-
-        const ctxDashboard = document.getElementById('dashboardChart').getContext('2d');
-        new Chart(ctxDashboard, {
-            type: 'line',
-            data: {
-                labels: ['Styczeń', 'Luty', 'Marzec', 'Kwiecień', 'Maj', 'Czerwiec'],
-                datasets: [{
-                    label: 'Uczestnicy',
-                    data: [50, 60, 70, 80, 90, 100],
-                    borderColor: 'rgba(46, 204, 113, 1)',
-                    backgroundColor: 'rgba(46, 204, 113, 0.2)'
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'top',
-                    },
-                    title: {
-                        display: true,
-                        text: 'Uczestnicy szkoleń w 2024 roku'
-                    }
-                }
-            }
-        });
-
-        const ctxReport = document.getElementById('reportChart').getContext('2d');
-        new Chart(ctxReport, {
-            type: 'bar',
-            data: {
-                labels: ['Styczeń', 'Luty', 'Marzec', 'Kwiecień', 'Maj', 'Czerwiec'],
-                datasets: [{
-                    label: 'Sprzedaż',
-                    data: [1500, 1600, 1700, 1800, 1900, 2000],
-                    backgroundColor: 'rgba(52, 152, 219, 1)'
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'top',
-                    },
-                    title: {
-                        display: true,
-                        text: 'Sprzedaż w pierwszej połowie 2024 roku'
-                    }
-                }
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
