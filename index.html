@@ -3,403 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>System Zarządzania</title>
+    <title>Oświadczenie Marketingowe DEKRA</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="sidebar">
-        <h2>Menu</h2>
-        <ul>
-            <li onclick="showModule('dashboard')">Strona Główna</li>
-            <li onclick="showModule('szkolenia-otwarte')">Szkolenia Otwarte</li>
-            <li onclick="showModule('crm')">CRM</li>
-            <li onclick="showModule('szkolenia-zamkniete')">Szkolenia Zamknięte</li>
-            <li onclick="showModule('projekty-zamkniete')">Projekty Zamknięte</li>
-            <li onclick="showModule('zarzadzanie-trenerami')">Zarządzanie Trenerami</li>
-            <li onclick="showModule('workflow')">Workflow</li>
-            <li onclick="showModule('dokumentacja')">Dokumentacja</li>
-            <li onclick="showModule('raporty')">Raporty</li>
-            <li onclick="showModule('biblioteka-norm')">Biblioteka Norm</li>
-        </ul>
+    <div class="container">
+        <h1>Oświadczenie Marketingowe DEKRA</h1>
+        <form id="dekraForm">
+            <label for="name">Imię i nazwisko*:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="company">Nazwa firmy:</label>
+            <input type="text" id="company" name="company">
+
+            <label for="region">Województwo*:</label>
+            <input type="text" id="region" name="region" required>
+
+            <label for="nip">NIP:</label>
+            <input type="text" id="nip" name="nip">
+
+            <label for="industry">Branża*:</label>
+            <input type="text" id="industry" name="industry" required>
+
+            <label for="phone">Telefon:</label>
+            <input type="text" id="phone" name="phone">
+
+            <label for="email">E-mail*:</label>
+            <input type="email" id="email" name="email" required>
+
+            <h3>Voucher</h3>
+            <input type="checkbox" id="voucher" name="voucher">
+            <label for="voucher">Jestem zainteresowany/a otrzymaniem vouchera upoważniającego do 10% rabatu na szkolenie.</label>
+
+            <h3>Tematyka</h3>
+            <p>Jestem zainteresowany/a otrzymywaniem bezpłatnych newsletterów informacji DEKRA:</p>
+            <input type="checkbox" id="all_topics" name="topics" value="all">
+            <label for="all_topics">WSZYSTKIE tematy</label><br>
+            <input type="checkbox" id="topic1" name="topics" value="ISO 9001, ISO 14001, ISO 45001, EMAS, ISO 50001">
+            <label for="topic1">ISO 9001, ISO 14001, ISO 45001, EMAS, ISO 50001</label><br>
+            <input type="checkbox" id="topic2" name="topics" value="ISO/IEC 27001, ISO 22301, ISO 20000-1">
+            <label for="topic2">ISO/IEC 27001, ISO 22301, ISO 20000-1</label><br>
+            <input type="checkbox" id="topic3" name="topics" value="Zarządzanie kryzysowe, ciągłość działania">
+            <label for="topic3">Zarządzanie kryzysowe, ciągłość działania</label><br>
+            <input type="checkbox" id="topic4" name="topics" value="Bezpieczeństwo żywności, pasz, opakowań">
+            <label for="topic4">Bezpieczeństwo żywności, pasz, opakowań</label><br>
+            <input type="checkbox" id="topic5" name="topics" value="Zarządzanie bezpieczeństwem informacji, BCM">
+            <label for="topic5">Zarządzanie bezpieczeństwem informacji, BCM</label><br>
+            <input type="checkbox" id="topic6" name="topics" value="Inne tematy z zakresu systemów zarządzania">
+            <label for="topic6">Inne tematy z zakresu systemów zarządzania</label>
+
+            <h3>Oświadczenia</h3>
+            <input type="checkbox" id="statement1" name="statement1" required>
+            <label for="statement1">* Potwierdzam zapoznanie się z Obowiązkiem informacyjnym.</label><br>
+            <input type="checkbox" id="statement2" name="statement2" required>
+            <label for="statement2">* Wyrażam zgodę na przetwarzanie danych przez DEKRA Polska sp. z o.o.</label>
+
+            <button type="submit">Wyślij</button>
+        </form>
+        <p id="message"></p>
     </div>
-    <div class="content">
-        <div class="navbar">
-            <h1 id="module-title">Strona Główna</h1>
-        </div>
-
-        <div id="dashboard" class="module">
-            <div class="card">
-                <h3>Kalendarz</h3>
-                <div id="calendar"></div>
-            </div>
-            <div class="card">
-                <h3>Powiadomienia</h3>
-                <ul id="notifications">
-                    <li>Powiadomienie 1</li>
-                    <li>Powiadomienie 2</li>
-                    <li>Powiadomienie 3</li>
-                </ul>
-            </div>
-            <div class="card">
-                <h3>Statystyki</h3>
-                <canvas id="dashboardChart"></canvas>
-            </div>
-            <div class="card">
-                <h3>Szybki dostęp</h3>
-                <button class="btn">Rejestracja uczestników</button>
-                <button class="btn">Generowanie dokumentów</button>
-            </div>
-        </div>
-
-        <div id="szkolenia-otwarte" class="module hidden">
-            <div class="card">
-                <h3>Lista Szkolenia Otwarte</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Kategoria</th>
-                            <th>Termin</th>
-                            <th>Trener</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody id="open-training-list">
-                        <!-- Dynamic content will be added here -->
-                    </tbody>
-                </table>
-            </div>
-            
-            <div class="card">
-                <h3>Dodaj/Edytuj Szkolenie</h3>
-                <div class="form-group">
-                    <label for="open-category">Kategoria</label>
-                    <input type="text" id="open-category" name="open-category">
-                </div>
-                <div class="form-group">
-                    <label for="open-date">Termin</label>
-                    <input type="date" id="open-date" name="open-date">
-                </div>
-                <div class="form-group">
-                    <label for="open-trainer">Trener</label>
-                    <select id="open-trainer" name="open-trainer">
-                        <!-- Dynamic content will be added here -->
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="open-status">Status</label>
-                    <select id="open-status" name="open-status">
-                        <option value="Zaplanowane">Zaplanowane</option>
-                        <option value="Zakończone">Zakończone</option>
-                    </select>
-                </div>
-                <button class="btn" onclick="addOpenTraining()">Zapisz</button>
-            </div>
-        </div>
-
-        <div id="crm" class="module hidden">
-            <div class="card">
-                <h3>Baza Klientów</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Nazwa</th>
-                            <th>Kontakt</th>
-                            <th>Adres</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody id="client-list">
-                        <!-- Dynamic content will be added here -->
-                    </tbody>
-                </table>
-            </div>
-            
-            <div class="card">
-                <h3>Dodaj Klienta</h3>
-                <div class="form-group">
-                    <label for="client-name">Nazwa</label>
-                    <input type="text" id="client-name" name="client-name">
-                </div>
-                <div class="form-group">
-                    <label for="contact-name">Kontakt</label>
-                    <input type="text" id="contact-name" name="contact-name">
-                </div>
-                <div class="form-group">
-                    <label for="address">Adres</label>
-                    <input type="text" id="address" name="address">
-                </div>
-                <button class="btn" onclick="addClient()">Zapisz</button>
-            </div>
-
-            <div class="card">
-                <h3>Oferty</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Nazwa</th>
-                            <th>Data</th>
-                            <th>Szansa wygranej</th>
-                        </tr>
-                    </thead>
-                    <tbody id="offer-list">
-                        <!-- Dynamic content will be added here -->
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="card">
-                <h3>Dodaj Ofertę</h3>
-                <div class="form-group">
-                    <label for="offer-name">Nazwa</label>
-                    <input type="text" id="offer-name" name="offer-name">
-                </div>
-                <div class="form-group">
-                    <label for="offer-date">Data</label>
-                    <input type="date" id="offer-date" name="offer-date">
-                </div>
-                <div class="form-group">
-                    <label for="win-chance">Szansa wygranej</label>
-                    <input type="text" id="win-chance" name="win-chance">
-                </div>
-                <button class="btn" onclick="addOffer()">Zapisz</button>
-            </div>
-        </div>
-
-        <div id="szkolenia-zamkniete" class="module hidden">
-            <div class="card">
-                <h3>Lista Szkolenia Zamknięte</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Klient</th>
-                            <th>Termin</th>
-                            <th>Miejsce</th>
-                            <th>Trener</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody id="closed-training-list">
-                        <!-- Dynamic content will be added here -->
-                    </tbody>
-                </table>
-            </div>
-            
-            <div class="card">
-                <h3>Dodaj/Edytuj Szkolenie</h3>
-                <div class="form-group">
-                    <label for="closed-client">Klient</label>
-                    <input type="text" id="closed-client" name="closed-client">
-                </div>
-                <div class="form-group">
-                    <label for="closed-date">Termin</label>
-                    <input type="date" id="closed-date" name="closed-date">
-                </div>
-                <div class="form-group">
-                    <label for="closed-location">Miejsce</label>
-                    <input type="text" id="closed-location" name="closed-location">
-                </div>
-                <div class="form-group">
-                    <label for="closed-trainer">Trener</label>
-                    <select id="closed-trainer" name="closed-trainer">
-                        <!-- Dynamic content will be added here -->
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="closed-status">Status</label>
-                    <select id="closed-status" name="closed-status">
-                        <option value="Zaplanowane">Zaplanowane</option>
-                        <option value="Zakończone">Zakończone</option>
-                    </select>
-                </div>
-                <button class="btn" onclick="addClosedTraining()">Zapisz</button>
-            </div>
-        </div>
-
-        <div id="projekty-zamkniete" class="module hidden">
-            <div class="card">
-                <h3>Lista Projekty Zamknięte</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Nazwa Projektu</th>
-                            <th>Klient</th>
-                            <th>Termin</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody id="closed-project-list">
-                        <!-- Dynamic content will be added here -->
-                    </tbody>
-                </table>
-            </div>
-            
-            <div class="card">
-                <h3>Dodaj/Edytuj Projekt</h3>
-                <div class="form-group">
-                    <label for="project-name">Nazwa Projektu</label>
-                    <input type="text" id="project-name" name="project-name">
-                </div>
-                <div class="form-group">
-                    <label for="project-client">Klient</label>
-                    <input type="text" id="project-client" name="project-client">
-                </div>
-                <div class="form-group">
-                    <label for="project-date">Termin</label>
-                    <input type="date" id="project-date" name="project-date">
-                </div>
-                <div class="form-group">
-                    <label for="project-status">Status</label>
-                    <select id="project-status" name="project-status">
-                        <option value="Zaplanowane">Zaplanowane</option>
-                        <option value="Zakończone">Zakończone</option>
-                    </select>
-                </div>
-                <button class="btn" onclick="addClosedProject()">Zapisz</button>
-            </div>
-        </div>
-
-        <div id="zarzadzanie-trenerami" class="module hidden">
-            <div class="card">
-                <h3>Lista Trenerów</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Imię i Nazwisko</th>
-                            <th>Biogram</th>
-                            <th>Pliki</th>
-                        </tr>
-                    </thead>
-                    <tbody id="trainer-list">
-                        <!-- Dynamic content will be added here -->
-                    </tbody>
-                </table>
-            </div>
-            
-            <div class="card">
-                <h3>Dodaj/Edytuj Trenera</h3>
-                <div class="form-group">
-                    <label for="trainer-name">Imię i Nazwisko</label>
-                    <input type="text" id="trainer-name" name="trainer-name">
-                </div>
-                <div class="form-group">
-                    <label for="trainer-bio">Biogram</label>
-                    <textarea id="trainer-bio" name="trainer-bio"></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="trainer-files">Załącz Pliki</label>
-                    <input type="file" id="trainer-files" name="trainer-files" multiple>
-                </div>
-                <button class="btn" onclick="addTrainer()">Zapisz</button>
-            </div>
-        </div>
-
-        <div id="workflow" class="module hidden">
-            <div class="card">
-                <h3>Zadania</h3>
-                <ul id="task-list">
-                    <!-- Dynamic content will be added here -->
-                </ul>
-            </div>
-            
-            <div class="card">
-                <h3>Dodaj Zadanie</h3>
-                <div class="form-group">
-                    <label for="task-name">Nazwa Zadania</label>
-                    <input type="text" id="task-name" name="task-name">
-                </div>
-                <div class="form-group">
-                    <label for="task-employee">Pracownik</label>
-                    <input type="text" id="task-employee" name="task-employee">
-                </div>
-                <button class="btn" onclick="addTask()">Zapisz</button>
-            </div>
-        </div>
-
-        <div id="dokumentacja" class="module hidden">
-            <div class="card">
-                <h3>Lista Dokumentów</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Nazwa Dokumentu</th>
-                            <th>Typ</th>
-                            <th>Przypisane Szkolenie</th>
-                            <th>Generowanie PDF</th>
-                        </tr>
-                    </thead>
-                    <tbody id="document-list">
-                        <!-- Dynamic content will be added here -->
-                    </tbody>
-                </table>
-            </div>
-            
-            <div class="card">
-                <h3>Dodaj Dokument</h3>
-                <div class="form-group">
-                    <label for="document-name">Nazwa Dokumentu</label>
-                    <input type="text" id="document-name" name="document-name">
-                </div>
-                <div class="form-group">
-                    <label for="document-type">Typ</label>
-                    <select id="document-type" name="document-type">
-                        <option value="Lista">Lista</option>
-                        <option value="Ankieta">Ankieta</option>
-                        <option value="Agenda">Agenda</option>
-                        <option value="Certyfikat">Certyfikat</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="document-training">Przypisane Szkolenie</label>
-                    <input type="text" id="document-training" name="document-training">
-                </div>
-                <button class="btn" onclick="addDocument()">Zapisz</button>
-            </div>
-        </div>
-
-        <div id="raporty" class="module hidden">
-            <div class="card">
-                <h3>Raporty Finansowe</h3>
-                <canvas id="financialChart"></canvas>
-            </div>
-        </div>
-
-       <div class="module" id="bibliotekaNorm">
-    <h2>Biblioteka Norm</h2>
-    <form id="addNormForm">
-        <label for="normName">Nazwa Normy:</label>
-        <input type="text" id="normName" name="normName" required>
-        
-        <label for="normFile">Plik PDF z Normą:</label>
-        <input type="file" id="normFile" name="normFile" accept="application/pdf" required>
-        
-        <label for="expiryDate">Data Wygaśnięcia Linku:</label>
-        <input type="date" id="expiryDate" name="expiryDate" required>
-        
-        <button type="submit" class="btn">Dodaj Normę</button>
-    </form>
-
-    <div id="normList">
-        <h3>Lista Norm</h3>
-        <!-- Dynamicznie generowana lista norm -->
-    </div>
-</div>
-
-<!-- Modal for displaying the PDF -->
-<div id="pdfModal" class="modal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h2>Podgląd Normy</h2>
-            <span class="modal-close">&times;</span>
-        </div>
-        <div class="modal-body">
-            <iframe id="pdfViewer" src="" frameborder="0"></iframe>
-        </div>
-    </div>
-</div>
-
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
