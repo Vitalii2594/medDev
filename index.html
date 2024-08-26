@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oświadczenie Marketingowe DEKRA</title>
+    <title>Formularz DEKRA</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Oświadczenie Marketingowe DEKRA</h1>
-        <form id="dekraForm">
+    <div class="form-container">
+        <h1>Formularz kontaktowy DEKRA</h1>
+        <form id="dekraForm" onsubmit="return handleSubmit(event)">
+            <!-- Personal Information -->
+            <h2>Dane osoby zainteresowanej kontaktem z DEKRA</h2>
             <label for="name">Imię i nazwisko*:</label>
             <input type="text" id="name" name="name" required>
 
@@ -26,42 +28,64 @@
             <input type="text" id="industry" name="industry" required>
 
             <label for="phone">Telefon:</label>
-            <input type="text" id="phone" name="phone">
+            <input type="tel" id="phone" name="phone">
 
             <label for="email">E-mail*:</label>
             <input type="email" id="email" name="email" required>
 
-            <h3>Voucher</h3>
-            <input type="checkbox" id="voucher" name="voucher">
-            <label for="voucher">Jestem zainteresowany/a otrzymaniem vouchera upoważniającego do 10% rabatu na szkolenie.</label>
+            <!-- Voucher Information -->
+            <h2>Voucher</h2>
+            <p>Jestem zainteresowany/a otrzymaniem vouchera upoważniającego do 10% rabatu na szkolenie otwarte lub szkolenie zamknięte przeprowadzone przez DEKRA Polska.</p>
+            <p>Warunkiem otrzymania vouchera rabatowego jest wypełnienie formularza, wyrażenie zgody na zaznaczone gwiazdką cele oraz podpis uczestnika. Formularz należy przekazać do Zespołu Doradztwa i Szkoleń DEKRA Polska Sp. z o.o.</p>
 
-            <h3>Tematyka</h3>
-            <p>Jestem zainteresowany/a otrzymywaniem bezpłatnych newsletterów informacji DEKRA:</p>
-            <input type="checkbox" id="all_topics" name="topics" value="all">
-            <label for="all_topics">WSZYSTKIE tematy</label><br>
-            <input type="checkbox" id="topic1" name="topics" value="ISO 9001, ISO 14001, ISO 45001, EMAS, ISO 50001">
-            <label for="topic1">ISO 9001, ISO 14001, ISO 45001, EMAS, ISO 50001</label><br>
-            <input type="checkbox" id="topic2" name="topics" value="ISO/IEC 27001, ISO 22301, ISO 20000-1">
-            <label for="topic2">ISO/IEC 27001, ISO 22301, ISO 20000-1</label><br>
-            <input type="checkbox" id="topic3" name="topics" value="Zarządzanie kryzysowe, ciągłość działania">
-            <label for="topic3">Zarządzanie kryzysowe, ciągłość działania</label><br>
-            <input type="checkbox" id="topic4" name="topics" value="Bezpieczeństwo żywności, pasz, opakowań">
-            <label for="topic4">Bezpieczeństwo żywności, pasz, opakowań</label><br>
-            <input type="checkbox" id="topic5" name="topics" value="Zarządzanie bezpieczeństwem informacji, BCM">
-            <label for="topic5">Zarządzanie bezpieczeństwem informacji, BCM</label><br>
-            <input type="checkbox" id="topic6" name="topics" value="Inne tematy z zakresu systemów zarządzania">
-            <label for="topic6">Inne tematy z zakresu systemów zarządzania</label>
+            <!-- Newsletter Subscription Topics -->
+            <h2>Tematyka*</h2>
+            <p>Jestem zainteresowany/a otrzymywaniem bezpłatnych newsletterów, informacji wysyłanych przez Zespół Doradztwa i Szkoleń DEKRA Polska w poniższym zakresie tematycznym:</p>
+            <p>*prosimy o wybór min. 1 opcji</p>
+            <select name="topics" id="topics" multiple required>
+                <option value="ALL">WSZYSTKIE tematy</option>
+                <option value="ISO">SYSTEMY ZARZĄDZANIA zgodne z normami ISO</option>
+                <option value="Cybersecurity">Cyberbezpieczeństwo</option>
+                <option value="QualityManagement">Zarządzanie jakością</option>
+                <option value="Compliance">Compliance</option>
+                <option value="Electromobility">Elektromobilność</option>
+                <option value="FoodSafety">Bezpieczeństwo żywności</option>
+                <option value="Automotive">Motoryzacja</option>
+                <option value="HealthAndSafety">Bezpieczeństwo i higiena pracy</option>
+                <option value="EnvironmentalManagement">Zarządzanie środowiskowe</option>
+                <option value="NuclearEnergy">Energetyka jądrowa</option>
+                <option value="EnergyAndWaterEfficiency">Efektywność energetyczna i wodna</option>
+                <option value="SustainableDevelopment">Zrównoważony rozwój</option>
+                <option value="EUDirectivesAndProductSafety">Dyrektywy UE i bezpieczeństwo wyrobów</option>
+                <option value="MedicalDevices">Wyroby medyczne</option>
+                <option value="Aviation">Lotnictwo</option>
+                <option value="Construction">Budownictwo</option>
+                <option value="SupplyChain">Łańcuch dostaw</option>
+                <option value="ProcessAndFunctionalSafety">Bezpieczeństwo procesowe i funkcjonalne</option>
+            </select>
 
-            <h3>Oświadczenia</h3>
-            <input type="checkbox" id="statement1" name="statement1" required>
-            <label for="statement1">* Potwierdzam zapoznanie się z Obowiązkiem informacyjnym.</label><br>
-            <input type="checkbox" id="statement2" name="statement2" required>
-            <label for="statement2">* Wyrażam zgodę na przetwarzanie danych przez DEKRA Polska sp. z o.o.</label>
+            <!-- Consent Statements -->
+            <h2>Oświadczenia</h2>
+            <input type="checkbox" id="agreement1" name="agreement1" required>
+            <label for="agreement1">* Potwierdzam zapoznanie się z Obowiązkiem informacyjnym (str. 2-5 formularza) znam przysługujące mi prawa, w tym prawo do cofnięcia zgody na przetwarzanie danych, znam zakres, cel i czas przetwarzania danych, wiem kto jest administratorem danych oraz jak skontaktować się Inspektorem Ochrony Danych DEKRA.</label><br>
 
+            <input type="checkbox" id="agreement2" name="agreement2" required>
+            <label for="agreement2">* Wyrażam zgodę na przetwarzanie przez DEKRA Polska sp. z o.o. moich danych osobowych zawartych w niniejszym formularzu dla celów marketingowych i w związku z tym chcę otrzymywać od DEKRA Polska sp. z o.o. informacje o szkoleniach, wydarzeniach i usługach DEKRA drogą:</label><br>
+
+            <input type="checkbox" id="contactByEmail" name="contactByEmail" required>
+            <label for="contactByEmail">* e-mailową</label><br>
+
+            <input type="checkbox" id="contactByPhone" name="contactByPhone" required>
+            <label for="contactByPhone">* telefoniczną</label><br>
+
+            <label for="signature">Data i podpis osoby wydającej oświadczenie*:</label>
+            <input type="text" id="signature" name="signature" required>
+
+            <!-- Submit Button -->
             <button type="submit">Wyślij</button>
         </form>
-        <p id="message"></p>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
