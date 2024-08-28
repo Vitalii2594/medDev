@@ -1,61 +1,90 @@
-/* Color Palette */
+/* Nowoczesna Paleta Kolorów */
 :root {
-    --color-black: #000;
-    --color-white: #fff;
-    --color-gray-light: #f5f5f5;
-    --color-gray-dark: #333;
-    --color-red: #c0392b;
+    --color-black: #000000;
+    --color-white: #ffffff;
+    --color-gray-light: #f7f7f7;
+    --color-gray-dark: #333333;
+    --color-gray-medium: #666666;
+    --color-red: #e74c3c;
+    --color-red-dark: #c0392b;
 }
 
-/* General Styles */
-body {
-    font-family: Arial, sans-serif;
+/* Resetowanie Marginesów i Paddingów */
+* {
     margin: 0;
     padding: 0;
-    background-color: var(--color-gray-light);
-    color: var(--color-gray-dark);
+    box-sizing: border-box;
 }
 
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--color-gray-light);
+    color: var(--color-gray-dark);
+    line-height: 1.6;
+}
+
+/* Nagłówek */
 header {
     background-color: var(--color-black);
     color: var(--color-white);
-    padding: 20px;
+    padding: 40px 20px;
     text-align: center;
 }
 
-header .banner {
-    max-width: 800px;
-    margin: auto;
-}
-
 header h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.8em;
+    margin-bottom: 20px;
 }
 
 header p {
     font-size: 1.2em;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 #cta-button {
     background-color: var(--color-red);
     color: var(--color-white);
     border: none;
-    padding: 10px 20px;
-    font-size: 1em;
+    padding: 12px 25px;
+    font-size: 1.2em;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
+#cta-button:hover {
+    background-color: var(--color-red-dark);
+}
+
+/* Sekcje */
 section {
-    padding: 40px 20px;
-    text-align: center;
+    padding: 60px 20px;
+    margin-bottom: 30px;
     background-color: var(--color-white);
-    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Section Layout for Desktop */
-.why-choose-us .advantages,
+.why-choose-us .advantages {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.why-choose-us .advantage {
+    background-color: var(--color-gray-light);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.why-choose-us .advantage:hover {
+    transform: translateY(-5px);
+}
+
 .testimonials,
 .recent-selections,
 .services,
@@ -63,34 +92,44 @@ section {
 .blog,
 .faq,
 .contact {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    max-width: 1200px;
     margin: auto;
-    max-width: 800px;
-}
-
-.why-choose-us .advantages {
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.why-choose-us .advantage {
-    margin: 10px;
-    padding: 10px;
     text-align: center;
-    max-width: 200px;
 }
 
-.testimonial,
-.selection,
-.service,
-.faq-item,
-.blog article {
+/* Testimonials */
+.testimonial {
+    display: flex;
+    align-items: center;
     margin-bottom: 20px;
-    text-align: left;
 }
 
+.testimonial img {
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.testimonial p {
+    font-size: 1em;
+    color: var(--color-gray-medium);
+}
+
+/* Usługi */
+.service {
+    margin-bottom: 40px;
+    text-align: left;
+    padding: 20px;
+    background-color: var(--color-gray-light);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.service h3 {
+    color: var(--color-red-dark);
+    margin-bottom: 15px;
+}
+
+/* Stopka */
 footer {
     background-color: var(--color-black);
     color: var(--color-white);
@@ -98,17 +137,20 @@ footer {
     text-align: center;
 }
 
-.footer-links, .social-media {
-    margin-bottom: 10px;
-}
-
-.footer-links a, .social-media a {
+.footer-links a,
+.social-media a {
     color: var(--color-white);
     margin: 0 10px;
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-/* Pop-up Styles */
+.footer-links a:hover,
+.social-media a:hover {
+    color: var(--color-red);
+}
+
+/* Pop-up Style */
 .popup {
     display: none;
     position: fixed;
@@ -119,15 +161,17 @@ footer {
     background-color: rgba(0, 0, 0, 0.8);
     justify-content: center;
     align-items: center;
+    z-index: 1000;
 }
 
 .popup-content {
     background-color: var(--color-white);
-    padding: 20px;
-    border-radius: 5px;
-    width: 80%;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
     max-width: 500px;
     text-align: center;
+    position: relative;
 }
 
 .close-button {
@@ -136,12 +180,15 @@ footer {
     right: 20px;
     font-size: 1.5em;
     cursor: pointer;
+    color: var(--color-gray-dark);
 }
 
-form input, form textarea, form button {
+form input,
+form textarea,
+form button {
     width: 100%;
-    margin-bottom: 10px;
-    padding: 10px;
+    margin-bottom: 15px;
+    padding: 15px;
     border: 1px solid var(--color-gray-dark);
     border-radius: 5px;
 }
@@ -151,16 +198,17 @@ form button {
     color: var(--color-white);
     border: none;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: var(--color-red-dark);
 }
 
 /* Media Queries */
 @media (max-width: 1024px) {
-    section {
-        padding: 30px 15px;
-    }
-
     header h1 {
-        font-size: 2em;
+        font-size: 2.5em;
     }
 
     header p {
@@ -168,32 +216,45 @@ form button {
     }
 
     #cta-button {
-        padding: 8px 15px;
-        font-size: 0.9em;
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+
+    .why-choose-us .advantages {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .testimonial {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .testimonial img {
+        margin-bottom: 20px;
     }
 }
 
 @media (max-width: 768px) {
-    .why-choose-us .advantages {
-        flex-direction: column;
+    header h1 {
+        font-size: 2em;
     }
 
-    .why-choose-us .advantage,
-    .testimonial,
-    .selection,
-    .service,
-    .faq-item,
-    .blog article {
-        max-width: 100%;
-        text-align: center;
+    header p {
+        font-size: 0.9em;
+    }
+
+    section {
+        padding: 40px 15px;
     }
 
     .popup-content {
-        width: 90%;
+        width: 95%;
     }
 
-    form input, form textarea, form button {
-        padding: 8px;
+    form input,
+    form textarea,
+    form button {
+        padding: 12px;
         font-size: 0.9em;
     }
 }
@@ -204,24 +265,31 @@ form button {
     }
 
     header p {
-        font-size: 0.9em;
-    }
-
-    #cta-button {
-        padding: 7px 12px;
         font-size: 0.8em;
     }
 
-    section {
-        padding: 20px 10px;
-    }
-
-    footer {
+    #cta-button {
+        padding: 8px 15px;
         font-size: 0.9em;
     }
 
+    section {
+        padding: 30px 10px;
+    }
+
+    footer {
+        font-size: 0.8em;
+    }
+
     .popup-content {
-        width: 95%;
-        padding: 15px;
+        width: 90%;
+        padding: 20px;
+    }
+
+    form input,
+    form textarea,
+    form button {
+        padding: 10px;
+        font-size: 0.8em;
     }
 }
