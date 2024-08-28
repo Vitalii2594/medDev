@@ -1,192 +1,194 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AutoEkspert</title>
     <link rel="stylesheet" href="styles.css">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
-    <!-- Header and Main Banner -->
+    <!-- Header -->
     <header>
-        <div class="banner">
-            <h1>Twój samochód czeka na Ciebie! Dobierzemy i sprawdzimy go dla Ciebie.</h1>
-            <p>Profesjonalna selekcja samochodów od A do Z z gwarancją czystości prawnej i sprawności technicznej.</p>
-            <button id="cta-button">Zamów selekcję samochodu</button>
+        <div class="container">
+            <h1>AutoEkspert</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about-us">O nas</a></li>
+                    <li><a href="#services">Usługi</a></li>
+                    <li><a href="#testimonials">Opinie</a></li>
+                    <li><a href="#contact">Kontakt</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <!-- Why Choose Us Section -->
-    <section class="why-choose-us">
-        <h2>Dlaczego warto nas wybrać?</h2>
-        <p>Pomagamy uniknąć zakupu «kota w worku». Nasi specjaliści sprawdzają każdy samochód pod kątem 200+ parametrów, w tym stanu technicznego, czystości prawnej i historii eksploatacji. Wystarczy, że wybierzesz – resztę zrobimy za Ciebie.</p>
-        <div class="advantages">
-            <div class="advantage">
-                <img src="path/to/icon1.png" alt="Profesjonalny zespół">
-                <p>Profesjonalny zespół – doświadczeni eksperci motoryzacyjni z wieloletnim stażem.</p>
-            </div>
-            <div class="advantage">
-                <img src="path/to/icon2.png" alt="Gwarancja bezpieczeństwa">
-                <p>Gwarancja bezpieczeństwa – pełna weryfikacja dokumentów i historii pojazdu.</p>
-            </div>
-            <div class="advantage">
-                <img src="path/to/icon3.png" alt="Oszczędność czasu">
-                <p>Oszczędność czasu – zajmujemy się wszystkimi formalnościami związanymi z wyszukiwaniem i weryfikacją.</p>
-            </div>
-            <div class="advantage">
-                <img src="path/to/icon4.png" alt="Indywidualne podejście">
-                <p>Indywidualne podejście – dobieramy samochody według Twoich potrzeb i budżetu.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Customer Testimonials Section -->
-    <section class="testimonials">
-        <h2>Co mówią nasi klienci</h2>
-        <div class="testimonial">
-            <img src="path/to/client1.jpg" alt="Aleksander, Warszawa">
-            <p><strong>Aleksander, Warszawa:</strong> «Kupiłem samochód przez AutoEkspert, jestem bardzo zadowolony! Wszystko szybko i bez problemów.»</p>
-        </div>
-        <!-- Add more testimonials here -->
-    </section>
-
-    <!-- Recent Selections Section -->
-    <section class="recent-selections">
-        <h2>Nasze ostatnie selekcje</h2>
-        <!-- Example car selection -->
-        <div class="selection">
-            <img src="path/to/car1.jpg" alt="Car 1">
-            <p>Krótkie opisy ostatnio wybranych samochodów</p>
-        </div>
-        <!-- Add more car selections here -->
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact">
-        <h2>Skontaktuj się z nami</h2>
-        <p>Masz pytania? Jesteśmy do Twojej dyspozycji!</p>
-        <form action="mailto:info@autoekspert.pl" method="post" enctype="text/plain">
-            <input type="text" name="name" placeholder="Imię" required>
-            <input type="email" name="email" placeholder="Email" required>
-            <textarea name="message" placeholder="Wiadomość" required></textarea>
-            <button type="submit">Wyślij</button>
-        </form>
-        <p>Telefon: +48 XXX XXX XXX</p>
-        <p>Email: info@autoekspert.pl</p>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services">
-        <h2>Nasze usługi</h2>
-        <div class="service">
-            <h3>Autoselekcja "Ekonomiczna"</h3>
-            <p>Idealna dla tych, którzy szukają budżetowego samochodu. Dobierzemy do 3 opcji z pełnym raportem.</p>
-            <p><strong>Cena: 1 500 zł</strong></p>
-        </div>
-        <div class="service">
-            <h3>Autoselekcja "Standardowa"</h3>
-            <p>Optymalne rozwiązanie do znalezienia niezawodnego samochodu średniej klasy.</p>
-            <p><strong>Cena: 3 000 zł</strong></p>
-        </div>
-        <div class="service">
-            <h3>Autoselekcja "Premium"</h3>
-            <p>Dla tych, którzy szukają samochodu bez kompromisów.</p>
-            <p><strong>Cena: 5 000 zł</strong></p>
-        </div>
-        <div class="service">
-            <h3>Sprawdzenie samochodu przed zakupem</h3>
-            <p>Znalazłeś już samochód, ale nie jesteś pewien jego stanu? Pomożemy!</p>
-            <p><strong>Cena: 1 000 zł</strong></p>
-        </div>
-        <div class="service">
-            <h3>Wsparcie przy transakcji</h3>
-            <p>Pomożemy w szybkim i prawidłowym załatwieniu wszystkich formalności.</p>
-            <p><strong>Cena: 500 zł</strong></p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Twój samochód czeka na Ciebie!</h2>
+            <p>Profesjonalna selekcja samochodów od A do Z z gwarancją czystości prawnej i sprawności technicznej.</p>
+            <button id="cta-button">Zamów selekcję samochodu</button>
         </div>
     </section>
 
     <!-- About Us Section -->
-    <section class="about-us">
-        <h2>Kim jesteśmy?</h2>
-        <p>Firma 'AutoEkspert' zajmuje się profesjonalną selekcją samochodów od 2015 roku. Pomagamy naszym klientom znaleźć i kupić wymarzony samochód, zapewniając pełne bezpieczeństwo i przejrzystość na każdym etapie. Nasz zespół to doświadczeni eksperci motoryzacyjni, dla których selekcja samochodów to nie tylko praca, ale i pasja.</p>
-        <!-- Team Photo Placeholder -->
-        <img src="path/to/team-photo.jpg" alt="Zespół AutoEkspert">
-        <!-- Add more team member descriptions here -->
+    <section id="about-us">
+        <div class="container">
+            <h2>Kim jesteśmy?</h2>
+            <p>Firma 'AutoEkspert' zajmuje się profesjonalną selekcją samochodów od 2015 roku. Pomagamy naszym klientom
+                znaleźć i kupić wymarzony samochód, zapewniając pełne bezpieczeństwo i przejrzystość na każdym etapie.
+                Nasz zespół to doświadczeni eksperci motoryzacyjni, dla których selekcja samochodów to nie tylko praca,
+                ale i pasja.</p>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why-choose-us">
+        <div class="container">
+            <h2>Dlaczego warto nas wybrać?</h2>
+            <div class="reasons">
+                <p>Pomagamy uniknąć zakupu «kota w worku». Nasi specjaliści sprawdzają każdy samochód pod kątem 200+
+                    parametrów, w tym stanu technicznego, czystości prawnej i historii eksploatacji. Wystarczy, że
+                    wybierzesz – resztę zrobimy za Ciebie.</p>
+                <p>Profesjonalny zespół – doświadczeni eksperci motoryzacyjni z wieloletnim stażem, gotowi pomóc Ci na
+                    każdym kroku.</p>
+                <p>Gwarancja bezpieczeństwa – pełna weryfikacja dokumentów i historii pojazdu. Z nami masz pewność, że
+                    wybierasz właściwie!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <h2>Nasze usługi</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3>Autoselekcja "Ekonomiczna"</h3>
+                    <p>Idealna dla tych, którzy szukają budżetowego samochodu. Dobierzemy do 3 opcji z pełnym raportem.
+                    </p>
+                    <span>Cena: 1 500 zł</span>
+                </div>
+                <div class="service-card">
+                    <h3>Autoselekcja "Standardowa"</h3>
+                    <p>Optymalne rozwiązanie do znalezienia niezawodnego samochodu średniej klasy.</p>
+                    <span>Cena: 3 000 zł</span>
+                </div>
+                <div class="service-card">
+                    <h3>Autoselekcja "Premium"</h3>
+                    <p>Dla tych, którzy szukają samochodu bez kompromisów.</p>
+                    <span>Cena: 5 000 zł</span>
+                </div>
+                <!-- Dodaj więcej kart według potrzeb -->
+            </div>
+            <!-- Paginacja -->
+            <div class="pagination">
+                <a href="#">&laquo;</a>
+                <a href="#" class="active">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">&raquo;</a>
+            </div>
+        </div>
     </section>
 
     <!-- Blog Section -->
-    <section class="blog">
-        <h2>Porady i aktualności</h2>
-        <article>
-            <h3>Jak wybrać używany samochód i nie dać się oszukać</h3>
-            <p>Opis artykułu...</p>
-        </article>
-        <article>
-            <h3>TOP 5 błędów przy zakupie samochodu z drugiej ręki</h3>
-            <p>Opis artykułu...</p>
-        </article>
-        <article>
-            <h3>Jakie dokumenty należy sprawdzić przy zakupie samochodu?</h3>
-            <p>Opis artykułu...</p>
-        </article>
+    <section id="blog">
+        <div class="container">
+            <h2>Porady i aktualności</h2>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <h3>Jak wybrać używany samochód i nie dać się oszukać</h3>
+                    <p>Krótki opis artykułu...</p>
+                </div>
+                <div class="blog-card">
+                    <h3>TOP 5 błędów przy zakupie samochodu z drugiej ręki</h3>
+                    <p>Krótki opis artykułu...</p>
+                </div>
+                <div class="blog-card">
+                    <h3>Jakie dokumenty należy sprawdzić przy zakupie samochodu?</h3>
+                    <p>Krótki opis artykułu...</p>
+                </div>
+                <!-- Dodaj więcej kart blogowych według potrzeb -->
+            </div>
+        </div>
     </section>
 
     <!-- FAQ Section -->
-    <section class="faq">
-        <h2>Często zadawane pytania</h2>
-        <div class="faq-item">
-            <h3>Ile czasu zajmuje selekcja samochodu?</h3>
-            <p>Zwykle selekcja samochodu zajmuje od 5 do 10 dni.</p>
+    <section id="faq">
+        <div class="container">
+            <h2>Często zadawane pytania</h2>
+            <div class="faq-grid">
+                <div class="faq-card">
+                    <h3>Ile czasu zajmuje selekcja samochodu?</h3>
+                    <p>Zwykle selekcja samochodu zajmuje od 5 do 10 dni.</p>
+                </div>
+                <div class="faq-card">
+                    <h3>Jakie samochody selekcjonujecie?</h3>
+                    <p>Dobieramy zarówno nowe, jak i używane samochody, wszystkich marek i modeli.</p>
+                </div>
+                <div class="faq-card">
+                    <h3>Czy mogę zamówić tylko sprawdzenie samochodu, bez selekcji?</h3>
+                    <p>Tak, możesz zamówić tylko sprawdzenie samochodu przed zakupem.</p>
+                </div>
+                <!-- Dodaj więcej kart FAQ według potrzeb -->
+            </div>
         </div>
-        <div class="faq-item">
-            <h3>Jakie samochody selekcjonujecie?</h3>
-            <p>Dobieramy zarówno nowe, jak i używane samochody, wszystkich marek i modeli.</p>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <div class="container">
+            <h2>Co mówią nasi klienci</h2>
+            <div class="testimonial">
+                <!-- Tutaj wstaw zdjęcia i opinie klientów -->
+                <img src="path/to/customer1.jpg" alt="Aleksander, Warszawa">
+                <p>Aleksander, Warszawa: „Kupiłem samochód przez AutoEkspert, jestem bardzo zadowolony! Wszystko szybko i
+                    bez problemów.”</p>
+            </div>
+            <!-- Dodaj więcej opinii według potrzeb -->
         </div>
-        <div class="faq-item">
-            <h3>Czy mogę zamówić tylko sprawdzenie samochodu, bez selekcji?</h3>
-            <p>Tak, możesz zamówić tylko sprawdzenie samochodu przed zakupem.</p>
-        </div>
-        <div class="faq-item">
-            <h3>Czy działacie w innych miastach?</h3>
-            <p>Tak, działamy na terenie całej Polski.</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Skontaktuj się z nami</h2>
+            <p>Masz pytania? Jesteśmy do Twojej dyspozycji!</p>
+            <form>
+                <input type="text" placeholder="Imię">
+                <input type="email" placeholder="Email">
+                <textarea placeholder="Wiadomość"></textarea>
+                <button type="submit">Wyślij</button>
+            </form>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-links">
-            <a href="#">O nas</a>
-            <a href="#">Usługi</a>
-            <a href="#">Blog</a>
-            <a href="#">Kontakt</a>
-            <a href="#">Polityka prywatności</a>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <p>&copy; 2024 AutoEkspert. Wszelkie prawa zastrzeżone.</p>
+                </div>
+                <div class="footer-right">
+                    <h3>Skontaktuj się z nami</h3>
+                    <p>Email: info@autoekspert.pl</p>
+                    <p>Telefon: +48 XXX XXX XXX</p>
+                    <div class="social-media">
+                        <a href="#">Facebook</a>
+                        <a href="#">Instagram</a>
+                        <a href="#">VK</a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="social-media">
-            <a href="#"><img src="path/to/facebook-icon.png" alt="Facebook"></a>
-            <a href="#"><img src="path/to/instagram-icon.png" alt="Instagram"></a>
-            <a href="#"><img src="path/to/vk-icon.png" alt="VK"></a>
-        </div>
-        <p>© 2024 AutoEkspert. Wszelkie prawa zastrzeżone.</p>
     </footer>
-
-    <!-- Order Form Pop-up -->
-    <div id="order-form-popup" class="popup">
-        <div class="popup-content">
-            <span class="close-button">&times;</span>
-            <form>
-                <h2>Zamów selekcję samochodu</h2>
-                <input type="text" name="name" placeholder="Imię" required>
-                <input type="tel" name="phone" placeholder="Telefon" required>
-                <input type="text" name="budget" placeholder="Budżet" required>
-                <textarea name="preferences" placeholder="Preferencje dotyczące samochodu" required></textarea>
-                <input type="text" name="city" placeholder="Miasto" required>
-                <button type="submit">Wyślij</button>
-            </form>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
 </body>
+
 </html>
