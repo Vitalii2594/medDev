@@ -3,87 +3,186 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formularz DEKRA</title>
+    <title>AutoEkspert</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="form-container">
-        <h1>Formularz kontaktowy DEKRA</h1>
-        <form id="dekraForm" onsubmit="return handleSubmit(event)">
-            <!-- Personal Information -->
-            <h2>Dane osoby zainteresowanej kontaktem z DEKRA</h2>
-            <label for="name">Imię i nazwisko*:</label>
-            <input type="text" id="name" name="name" required>
+    <!-- Header and Main Banner -->
+    <header>
+        <div class="banner">
+            <h1>Twój samochód czeka na Ciebie! Dobierzemy i sprawdzimy go dla Ciebie.</h1>
+            <p>Profesjonalna selekcja samochodów od A do Z z gwarancją czystości prawnej i sprawności technicznej.</p>
+            <button id="cta-button">Zamów selekcję samochodu</button>
+        </div>
+    </header>
 
-            <label for="company">Nazwa firmy:</label>
-            <input type="text" id="company" name="company">
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-us">
+        <h2>Dlaczego warto nas wybrać?</h2>
+        <p>Pomagamy uniknąć zakupu «kota w worku». Nasi specjaliści sprawdzają każdy samochód pod kątem 200+ parametrów, w tym stanu technicznego, czystości prawnej i historii eksploatacji. Wystarczy, że wybierzesz – resztę zrobimy za Ciebie.</p>
+        <div class="advantages">
+            <div class="advantage">
+                <img src="path/to/icon1.png" alt="Profesjonalny zespół">
+                <p>Profesjonalny zespół – doświadczeni eksperci motoryzacyjni z wieloletnim stażem.</p>
+            </div>
+            <div class="advantage">
+                <img src="path/to/icon2.png" alt="Gwarancja bezpieczeństwa">
+                <p>Gwarancja bezpieczeństwa – pełna weryfikacja dokumentów i historii pojazdu.</p>
+            </div>
+            <div class="advantage">
+                <img src="path/to/icon3.png" alt="Oszczędność czasu">
+                <p>Oszczędność czasu – zajmujemy się wszystkimi formalnościami związanymi z wyszukiwaniem i weryfikacją.</p>
+            </div>
+            <div class="advantage">
+                <img src="path/to/icon4.png" alt="Indywidualne podejście">
+                <p>Indywidualne podejście – dobieramy samochody według Twoich potrzeb i budżetu.</p>
+            </div>
+        </div>
+    </section>
 
-            <label for="region">Województwo*:</label>
-            <input type="text" id="region" name="region" required>
+    <!-- Customer Testimonials Section -->
+    <section class="testimonials">
+        <h2>Co mówią nasi klienci</h2>
+        <div class="testimonial">
+            <img src="path/to/client1.jpg" alt="Aleksander, Warszawa">
+            <p><strong>Aleksander, Warszawa:</strong> «Kupiłem samochód przez AutoEkspert, jestem bardzo zadowolony! Wszystko szybko i bez problemów.»</p>
+        </div>
+        <!-- Add more testimonials here -->
+    </section>
 
-            <label for="nip">NIP:</label>
-            <input type="text" id="nip" name="nip">
+    <!-- Recent Selections Section -->
+    <section class="recent-selections">
+        <h2>Nasze ostatnie selekcje</h2>
+        <!-- Example car selection -->
+        <div class="selection">
+            <img src="path/to/car1.jpg" alt="Car 1">
+            <p>Krótkie opisy ostatnio wybranych samochodów</p>
+        </div>
+        <!-- Add more car selections here -->
+    </section>
 
-            <label for="industry">Branża*:</label>
-            <input type="text" id="industry" name="industry" required>
-
-            <label for="phone">Telefon:</label>
-            <input type="tel" id="phone" name="phone">
-
-            <label for="email">E-mail*:</label>
-            <input type="email" id="email" name="email" required>
-
-            <!-- Voucher Information -->
-            <h2>Voucher</h2>
-            <p>Jestem zainteresowany/a otrzymaniem vouchera upoważniającego do 10% rabatu na szkolenie otwarte lub szkolenie zamknięte przeprowadzone przez DEKRA Polska.</p>
-            <p>Warunkiem otrzymania vouchera rabatowego jest wypełnienie formularza, wyrażenie zgody na zaznaczone gwiazdką cele oraz podpis uczestnika. Formularz należy przekazać do Zespołu Doradztwa i Szkoleń DEKRA Polska Sp. z o.o.</p>
-
-            <!-- Newsletter Subscription Topics -->
-            <h2>Tematyka*</h2>
-            <p>Jestem zainteresowany/a otrzymywaniem bezpłatnych newsletterów, informacji wysyłanych przez Zespół Doradztwa i Szkoleń DEKRA Polska w poniższym zakresie tematycznym:</p>
-            <p>*prosimy o wybór min. 1 opcji</p>
-            <select name="topics" id="topics" multiple required>
-                <option value="ALL">WSZYSTKIE tematy</option>
-                <option value="ISO">SYSTEMY ZARZĄDZANIA zgodne z normami ISO</option>
-                <option value="Cybersecurity">Cyberbezpieczeństwo</option>
-                <option value="QualityManagement">Zarządzanie jakością</option>
-                <option value="Compliance">Compliance</option>
-                <option value="Electromobility">Elektromobilność</option>
-                <option value="FoodSafety">Bezpieczeństwo żywności</option>
-                <option value="Automotive">Motoryzacja</option>
-                <option value="HealthAndSafety">Bezpieczeństwo i higiena pracy</option>
-                <option value="EnvironmentalManagement">Zarządzanie środowiskowe</option>
-                <option value="NuclearEnergy">Energetyka jądrowa</option>
-                <option value="EnergyAndWaterEfficiency">Efektywność energetyczna i wodna</option>
-                <option value="SustainableDevelopment">Zrównoważony rozwój</option>
-                <option value="EUDirectivesAndProductSafety">Dyrektywy UE i bezpieczeństwo wyrobów</option>
-                <option value="MedicalDevices">Wyroby medyczne</option>
-                <option value="Aviation">Lotnictwo</option>
-                <option value="Construction">Budownictwo</option>
-                <option value="SupplyChain">Łańcuch dostaw</option>
-                <option value="ProcessAndFunctionalSafety">Bezpieczeństwo procesowe i funkcjonalne</option>
-            </select>
-
-            <!-- Consent Statements -->
-            <h2>Oświadczenia</h2>
-            <input type="checkbox" id="agreement1" name="agreement1" required>
-            <label for="agreement1">* Potwierdzam zapoznanie się z Obowiązkiem informacyjnym (str. 2-5 formularza) znam przysługujące mi prawa, w tym prawo do cofnięcia zgody na przetwarzanie danych, znam zakres, cel i czas przetwarzania danych, wiem kto jest administratorem danych oraz jak skontaktować się Inspektorem Ochrony Danych DEKRA.</label><br>
-
-            <input type="checkbox" id="agreement2" name="agreement2" required>
-            <label for="agreement2">* Wyrażam zgodę na przetwarzanie przez DEKRA Polska sp. z o.o. moich danych osobowych zawartych w niniejszym formularzu dla celów marketingowych i w związku z tym chcę otrzymywać od DEKRA Polska sp. z o.o. informacje o szkoleniach, wydarzeniach i usługach DEKRA drogą:</label><br>
-
-            <input type="checkbox" id="contactByEmail" name="contactByEmail" required>
-            <label for="contactByEmail">* e-mailową</label><br>
-
-            <input type="checkbox" id="contactByPhone" name="contactByPhone" required>
-            <label for="contactByPhone">* telefoniczną</label><br>
-
-            <label for="signature">Data i podpis osoby wydającej oświadczenie*:</label>
-            <input type="text" id="signature" name="signature" required>
-
-            <!-- Submit Button -->
+    <!-- Contact Section -->
+    <section class="contact">
+        <h2>Skontaktuj się z nami</h2>
+        <p>Masz pytania? Jesteśmy do Twojej dyspozycji!</p>
+        <form action="mailto:info@autoekspert.pl" method="post" enctype="text/plain">
+            <input type="text" name="name" placeholder="Imię" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <textarea name="message" placeholder="Wiadomość" required></textarea>
             <button type="submit">Wyślij</button>
         </form>
+        <p>Telefon: +48 XXX XXX XXX</p>
+        <p>Email: info@autoekspert.pl</p>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <h2>Nasze usługi</h2>
+        <div class="service">
+            <h3>Autoselekcja "Ekonomiczna"</h3>
+            <p>Idealna dla tych, którzy szukają budżetowego samochodu. Dobierzemy do 3 opcji z pełnym raportem.</p>
+            <p><strong>Cena: 1 500 zł</strong></p>
+        </div>
+        <div class="service">
+            <h3>Autoselekcja "Standardowa"</h3>
+            <p>Optymalne rozwiązanie do znalezienia niezawodnego samochodu średniej klasy.</p>
+            <p><strong>Cena: 3 000 zł</strong></p>
+        </div>
+        <div class="service">
+            <h3>Autoselekcja "Premium"</h3>
+            <p>Dla tych, którzy szukają samochodu bez kompromisów.</p>
+            <p><strong>Cena: 5 000 zł</strong></p>
+        </div>
+        <div class="service">
+            <h3>Sprawdzenie samochodu przed zakupem</h3>
+            <p>Znalazłeś już samochód, ale nie jesteś pewien jego stanu? Pomożemy!</p>
+            <p><strong>Cena: 1 000 zł</strong></p>
+        </div>
+        <div class="service">
+            <h3>Wsparcie przy transakcji</h3>
+            <p>Pomożemy w szybkim i prawidłowym załatwieniu wszystkich formalności.</p>
+            <p><strong>Cena: 500 zł</strong></p>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-us">
+        <h2>Kim jesteśmy?</h2>
+        <p>Firma 'AutoEkspert' zajmuje się profesjonalną selekcją samochodów od 2015 roku. Pomagamy naszym klientom znaleźć i kupić wymarzony samochód, zapewniając pełne bezpieczeństwo i przejrzystość na każdym etapie. Nasz zespół to doświadczeni eksperci motoryzacyjni, dla których selekcja samochodów to nie tylko praca, ale i pasja.</p>
+        <!-- Team Photo Placeholder -->
+        <img src="path/to/team-photo.jpg" alt="Zespół AutoEkspert">
+        <!-- Add more team member descriptions here -->
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog">
+        <h2>Porady i aktualności</h2>
+        <article>
+            <h3>Jak wybrać używany samochód i nie dać się oszukać</h3>
+            <p>Opis artykułu...</p>
+        </article>
+        <article>
+            <h3>TOP 5 błędów przy zakupie samochodu z drugiej ręki</h3>
+            <p>Opis artykułu...</p>
+        </article>
+        <article>
+            <h3>Jakie dokumenty należy sprawdzić przy zakupie samochodu?</h3>
+            <p>Opis artykułu...</p>
+        </article>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <h2>Często zadawane pytania</h2>
+        <div class="faq-item">
+            <h3>Ile czasu zajmuje selekcja samochodu?</h3>
+            <p>Zwykle selekcja samochodu zajmuje od 5 do 10 dni.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Jakie samochody selekcjonujecie?</h3>
+            <p>Dobieramy zarówno nowe, jak i używane samochody, wszystkich marek i modeli.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Czy mogę zamówić tylko sprawdzenie samochodu, bez selekcji?</h3>
+            <p>Tak, możesz zamówić tylko sprawdzenie samochodu przed zakupem.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Czy działacie w innych miastach?</h3>
+            <p>Tak, działamy na terenie całej Polski.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="#">O nas</a>
+            <a href="#">Usługi</a>
+            <a href="#">Blog</a>
+            <a href="#">Kontakt</a>
+            <a href="#">Polityka prywatności</a>
+        </div>
+        <div class="social-media">
+            <a href="#"><img src="path/to/facebook-icon.png" alt="Facebook"></a>
+            <a href="#"><img src="path/to/instagram-icon.png" alt="Instagram"></a>
+            <a href="#"><img src="path/to/vk-icon.png" alt="VK"></a>
+        </div>
+        <p>© 2024 AutoEkspert. Wszelkie prawa zastrzeżone.</p>
+    </footer>
+
+    <!-- Order Form Pop-up -->
+    <div id="order-form-popup" class="popup">
+        <div class="popup-content">
+            <span class="close-button">&times;</span>
+            <form>
+                <h2>Zamów selekcję samochodu</h2>
+                <input type="text" name="name" placeholder="Imię" required>
+                <input type="tel" name="phone" placeholder="Telefon" required>
+                <input type="text" name="budget" placeholder="Budżet" required>
+                <textarea name="preferences" placeholder="Preferencje dotyczące samochodu" required></textarea>
+                <input type="text" name="city" placeholder="Miasto" required>
+                <button type="submit">Wyślij</button>
+            </form>
+        </div>
     </div>
 
     <script src="script.js"></script>
