@@ -1,196 +1,173 @@
 <!DOCTYPE html>
 <html lang="pl">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AutoEkspert</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap"
-        rel="stylesheet">
+    <title>Smart Home</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background-color: #1f1f1f;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .hero {
+            background-image: url('/path-to-your-image.jpg'); /* Replace with your image */
+            background-size: cover;
+            background-position: center;
+            height: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+        .hero h1 {
+            font-size: 50px;
+        }
+        .section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #222;
+        }
+        .services, .equipment, .process {
+            display: flex;
+            justify-content: space-around;
+        }
+        .services div, .equipment div, .process div {
+            width: 30%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        footer {
+            background-color: #1f1f1f;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        footer p {
+            margin: 0;
+        }
+        @media (max-width: 768px) {
+            .services div, .equipment div, .process div {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
 </head>
-
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <h1>AutoEkspert</h1>
-            <nav>
-                <ul>
-                    <li><a href="#about-us">O nas</a></li>
-                    <li><a href="#services">Usługi</a></li>
-                    <li><a href="#testimonials">Opinie</a></li>
-                    <li><a href="#contact">Kontakt</a></li>
-                    <li><a href="#blog">Blog</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h2>Twój samochód czeka na Ciebie!</h2>
-            <p>Profesjonalna selekcja samochodów od A do Z z gwarancją czystości prawnej i sprawności technicznej.</p>
-            <button id="cta-button">Zamów selekcję samochodu</button>
-        </div>
-    </section>
+<header>
+    <nav>
+        <ul>
+            <li><a href="#about">O nas</a></li>
+            <li><a href="#services">Nasze usługi</a></li>
+            <li><a href="#benefits">Korzyści</a></li>
+            <li><a href="#equipment">Sprzęt</a></li>
+            <li><a href="#how-it-works">Jak to działa</a></li>
+            <li><a href="#contact">Kontakt</a></li>
+        </ul>
+    </nav>
+</header>
 
-    <!-- About Us Section -->
-    <section id="about-us">
-        <div class="container">
-            <h2>Kim jesteśmy?</h2>
-            <p>Firma 'AutoEkspert' zajmuje się profesjonalną selekcją samochodów od 2015 roku. Pomagamy naszym klientom
-                znaleźć i kupić wymarzony samochód, zapewniając pełne bezpieczeństwo i przejrzystość na każdym etapie.
-                Nasz zespół to doświadczeni eksperci motoryzacyjni, dla których selekcja samochodów to nie tylko praca,
-                ale i pasja.</p>
-        </div>
-    </section>
+<section class="hero">
+    <h1>Inteligentne domy dla nowoczesnego życia</h1>
+</section>
 
-    <!-- Why Choose Us Section -->
-    <section id="why-choose-us">
-        <div class="container">
-            <h2>Dlaczego warto nas wybrać?</h2>
-            <div class="reasons">
-                <p>Pomagamy uniknąć zakupu «kota w worku». Nasi specjaliści sprawdzają każdy samochód pod kątem 200+
-                    parametrów, w tym stanu technicznego, czystości prawnej i historii eksploatacji. Wystarczy, że
-                    wybierzesz – resztę zrobimy za Ciebie.</p>
-                <p>Profesjonalny zespół – doświadczeni eksperci motoryzacyjni z wieloletnim stażem, gotowi pomóc Ci na
-                    każdym kroku.</p>
-                <p>Gwarancja bezpieczeństwa – pełna weryfikacja dokumentów i historii pojazdu. Z nami masz pewność, że
-                    wybierasz właściwie!</p>
-            </div>
-        </div>
-    </section>
+<section id="about" class="section">
+    <h2>O nas</h2>
+    <p>Firma Smart Home specjalizuje się w instalacji systemów inteligentnego domu, dostosowanych do mieszkań i domów, które zwiększają komfort i bezpieczeństwo.</p>
+</section>
 
-    <!-- Services Section -->
-    <section id="services">
-        <div class="container">
-            <h2>Nasze usługi</h2>
-            <div class="service-grid">
-                <div class="service-card">
-                    <h3>Autoselekcja "Ekonomiczna"</h3>
-                    <p>Idealna dla tych, którzy szukają budżetowego samochodu. Dobierzemy do 3 opcji z pełnym raportem.
-                    </p>
-                    <span>Cena: 1 500 zł</span>
-                </div>
-                <div class="service-card">
-                    <h3>Autoselekcja "Standardowa"</h3>
-                    <p>Optymalne rozwiązanie do znalezienia niezawodnego samochodu średniej klasy.</p>
-                    <span>Cena: 3 000 zł</span>
-                </div>
-                <div class="service-card">
-                    <h3>Autoselekcja "Premium"</h3>
-                    <p>Dla tych, którzy szukają samochodu bez kompromisów.</p>
-                    <span>Cena: 5 000 zł</span>
-                </div>
-                <!-- Dodaj więcej kart według potrzeb -->
-            </div>
-            <!-- Paginacja -->
-          <!--   <div class="pagination">
-                <a href="#">&laquo;</a>
-                <a href="#" class="active">1</a>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#">&raquo;</a>
-            </div> -->
-        </div>
-    </section>
+<section id="services" class="section services">
+    <h2>Nasze usługi</h2>
+    <div>
+        <h3>Automatyzacja oświetlenia</h3>
+        <p>Pełna kontrola nad oświetleniem domu za pomocą aplikacji.</p>
+    </div>
+    <div>
+        <h3>Inteligentne kamery</h3>
+        <p>Bezpieczny monitoring 24/7 z dostępem zdalnym.</p>
+    </div>
+    <div>
+        <h3>Asystenci domowi</h3>
+        <p>Zarządzaj swoim domem głosowo, za pomocą inteligentnych asystentów.</p>
+    </div>
+</section>
 
-    <!-- Blog Section -->
-    <section id="blog">
-        <div class="container">
-            <h2>Porady i aktualności</h2>
-            <div class="blog-grid">
-                <div class="blog-card">
-                    <h3>Jak wybrać używany samochód i nie dać się oszukać</h3>
-                    <p>Krótki opis artykułu...</p>
-                </div>
-                <div class="blog-card">
-                    <h3>TOP 5 błędów przy zakupie samochodu z drugiej ręki</h3>
-                    <p>Krótki opis artykułu...</p>
-                </div>
-                <div class="blog-card">
-                    <h3>Jakie dokumenty należy sprawdzić przy zakupie samochodu?</h3>
-                    <p>Krótki opis artykułu...</p>
-                </div>
-                <!-- Dodaj więcej kart blogowych według potrzeb -->
-            </div>
-        </div>
-    </section>
+<section id="benefits" class="section">
+    <h2>Korzyści klienta</h2>
+    <p>Oferujemy wygodę, bezpieczeństwo i oszczędności energii dzięki naszym zaawansowanym systemom.</p>
+</section>
 
-    <!-- FAQ Section -->
-    <section id="faq">
-        <div class="container">
-            <h2>Często zadawane pytania</h2>
-            <div class="faq-grid">
-                <div class="faq-card">
-                    <h3>Ile czasu zajmuje selekcja samochodu?</h3>
-                    <p>Zwykle selekcja samochodu zajmuje od 5 do 10 dni.</p>
-                </div>
-                <div class="faq-card">
-                    <h3>Jakie samochody selekcjonujecie?</h3>
-                    <p>Dobieramy zarówno nowe, jak i używane samochody, wszystkich marek i modeli.</p>
-                </div>
-                <div class="faq-card">
-                    <h3>Czy mogę zamówić tylko sprawdzenie samochodu, bez selekcji?</h3>
-                    <p>Tak, możesz zamówić tylko sprawdzenie samochodu przed zakupem.</p>
-                </div>
-                <!-- Dodaj więcej kart FAQ według potrzeb -->
-            </div>
-        </div>
-    </section>
+<section id="equipment" class="section equipment">
+    <h2>Sprzęt</h2>
+    <div>
+        <h3>Smart Hub</h3>
+        <p>Sercem Twojego inteligentnego domu, łączący wszystkie urządzenia w jedną sieć.</p>
+    </div>
+    <div>
+        <h3>Kamery</h3>
+        <p>Kamery HD o szerokim kącie widzenia i podczerwieni do monitorowania przez całą dobę.</p>
+    </div>
+    <div>
+        <h3>Termostaty</h3>
+        <p>Automatyczne sterowanie temperaturą w celu oszczędności energii.</p>
+    </div>
+</section>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials">
-        <div class="container">
-            <h2>Co mówią nasi klienci</h2>
-            <div class="testimonial">
-                <!-- Tutaj wstaw zdjęcia i opinie klientów -->
-                <img src="path/to/customer1.jpg" alt="Aleksander, Warszawa">
-                <p>Aleksander, Warszawa: „Kupiłem samochód przez AutoEkspert, jestem bardzo zadowolony! Wszystko szybko i
-                    bez problemów.”</p>
-            </div>
-            <!-- Dodaj więcej opinii według potrzeb -->
-        </div>
-    </section>
+<section id="how-it-works" class="section process">
+    <h2>Jak to działa</h2>
+    <div>
+        <h3>Konsultacja</h3>
+        <p>Analizujemy Twoje potrzeby i proponujemy rozwiązania.</p>
+    </div>
+    <div>
+        <h3>Instalacja</h3>
+        <p>Profesjonalnie instalujemy wszystkie elementy systemu.</p>
+    </div>
+    <div>
+        <h3>Wsparcie</h3>
+        <p>Zapewniamy pełne wsparcie techniczne i serwis.</p>
+    </div>
+</section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <h2>Skontaktuj się z nami</h2>
-            <p>Masz pytania? Jesteśmy do Twojej dyspozycji!</p>
-            <form>
-                <input type="text" placeholder="Imię">
-                <input type="email" placeholder="Email">
-                <textarea placeholder="Wiadomość"></textarea>
-                <button type="submit">Wyślij</button>
-            </form>
-        </div>
-    </section>
+<section id="contact" class="section">
+    <h2>Kontakt</h2>
+    <p>Skontaktuj się z nami pod adresem: kontakt@smarthome.com</p>
+</section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-left">
-                    <p>&copy; 2024 AutoEkspert. Wszelkie prawa zastrzeżone.</p>
-                </div>
-                <div class="footer-right">
-                    <h3>Skontaktuj się z nami</h3>
-                    <p>Email: info@autoekspert.pl</p>
-                    <p>Telefon: +48 XXX XXX XXX</p>
-                    <div class="social-media">
-                        <a href="#">Facebook</a>
-                        <a href="#">Instagram</a>
-                        <a href="#">VK</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+<footer>
+    <p>&copy; 2024 Smart Home - Wszystkie prawa zastrzeżone</p>
+</footer>
 
-<script src="script.js"></script>
 </body>
-
-</html>
+    </html>
+    
